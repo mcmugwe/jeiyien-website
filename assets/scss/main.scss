@@ -1,0 +1,23 @@
+/*
+ * Dewi template SCSS entry point.
+ * Compile this file to ../css/main.css.
+ * Section styles are kept in separate partials for easier maintenance.
+ */
+
+@use "settings";
+@use "general";
+@use "header-navigation";
+@use "footer";
+@use "global-components";
+@use "hero";
+@use "about";
+@use "stats";
+@use "services";
+@use "features";
+@use "services-alt";
+@use "testimonials";
+@use "portfolio";
+@use "contact";
+@use "portfolio-details";
+@use "service-details";
+@use "starter";

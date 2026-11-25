@@ -1,0 +1,99 @@
+/**
+* Template Name: Dewi
+* Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*
+* SCSS source reconstructed from the distributed main.css file.
+* The original template did not include its SCSS source files.
+*/
+
+// Font stacks
+$font-default: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-heading: "Raleway", sans-serif;
+$font-nav: "Inter", sans-serif;
+
+// Jeiyien brand palette
+$brand-navy: #0c356a; // Primary corporate colour
+$brand-cyan: #40f8ff; // Secondary corporate colour
+
+// Global colour tokens
+$color-background: #ffffff;
+$color-default: #444444;
+$color-heading: $brand-navy;
+$color-accent: $brand-cyan;
+$color-surface: #ffffff;
+$color-contrast: $brand-navy;
+
+// Navigation colour tokens
+$color-nav: #e5eaee;
+$color-nav-hover: $brand-cyan;
+$color-nav-mobile-background: #ffffff;
+$color-nav-dropdown-background: #ffffff;
+$color-nav-dropdown: $brand-navy;
+$color-nav-dropdown-hover: $brand-cyan;
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+:root {
+  --default-font: #{$font-default};
+  --heading-font: #{$font-heading};
+  --nav-font: #{$font-nav};
+}
+
+/* Jeiyien brand colours: reusable in any SCSS partial */
+:root {
+  --jeiyien-navy: #{$brand-navy};
+    --jeiyien-cyan: #{$brand-cyan};
+  }
+
+/* Global Colors - Updating these values changes the site's colour scheme */
+:root {
+  --background-color: #{$color-background};
+  --default-color: #{$color-default};
+  --heading-color: #{$color-heading};
+  --accent-color: #{$color-accent};
+  --surface-color: #{$color-surface};
+  --contrast-color: #{$color-contrast};
+}
+
+/* Navigation Menu Colors */
+:root {
+  --nav-color: #{$color-nav};
+  --nav-hover-color: #{$color-nav-hover};
+  --nav-mobile-background-color: #{$color-nav-mobile-background};
+  --nav-dropdown-background-color: #{$color-nav-dropdown-background};
+  --nav-dropdown-color: #{$color-nav-dropdown};
+  --nav-dropdown-hover-color: #{$color-nav-dropdown-hover};
+}
+
+/* Jeiyien supporting colour utilities */
+.jeiyien-light-highlight {
+  background-color: var(--jeiyien-cyan);
+}
+
+.jeiyien-cyan-highlight {
+  box-shadow: inset 0 -0.35em 0 color-mix(in srgb, var(--jeiyien-cyan), transparent 35%);
+}
+
+/* Color Presets */
+.light-background {
+  --background-color: #f1f4fa;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #000910;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #28323a;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
