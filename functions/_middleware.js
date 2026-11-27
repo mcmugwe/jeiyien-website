@@ -23,8 +23,10 @@ export async function onRequest(context) {
   const path = url.pathname;
   const method = request.method.toUpperCase();
 
-  // Allow local Wrangler development without production credentials.
- 
+  // Allow local development.
+  if (url.hostname === '127.0.0.1' || url.hostname === 'localhost') {
+    return next();
+  }
 
   const adminPage = path === '/admin' || path.startsWith('/admin/');
   const writeRequest =

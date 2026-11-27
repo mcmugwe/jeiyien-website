@@ -1,4 +1,9 @@
-﻿<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeiyien CMS</title><link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css"><style>:root{--navy:#0c356a;--cyan:#40f8ff}body{background:#f3f6fa;color:#17324f}.top{background:var(--navy);color:#fff;padding:18px 0}.wrap{max-width:1100px;margin:30px auto;padding:0 16px}.panel{background:#fff;border-radius:14px;padding:22px;box-shadow:0 8px 28px #1231;margin-bottom:20px}.btn-jei{background:var(--navy);color:#fff}.btn-jei:hover{background:#174b88;color:white}.project{border:1px solid #e1e8f0;border-radius:12px;padding:14px;margin-bottom:12px}.project img{width:100%;height:150px;object-fit:cover;border-radius:8px}.muted{color:#718096}.hidden{display:none}.form-control,.form-select{margin-bottom:10px}.tab{margin-right:8px;margin-bottom:8px}.status{margin:12px 0}</style></head><body><header class="top"><div class="container"><b>JEIYIEN <span style="color:var(--cyan)">CMS</span></b><span class="float-end">Website content manager</span></div></header><main class="wrap"><div id="status" class="status"></div><section class="panel"><h3>Manage your website</h3><p class="muted">Administrator access is required. Sign in using your administrator username and password.</p><button class="btn btn-jei tab" onclick="show('projects')">Projects</button><button class="btn btn-jei tab" onclick="show('banners')">Homepage banner</button><button class="btn btn-jei tab" onclick="newProject()">Add project</button></section><section id="projects" class="panel"><h4>Projects</h4><div id="list"></div></section><section id="banners" class="panel hidden"><h4>Homepage banners</h4><div id="bannerList"></div><label class="form-label">New banner image path</label><input class="form-control" id="bannerImage" placeholder="assets/images/hero-carousel-1.jpg"><input class="form-control" id="bannerAlt" placeholder="Image description"><button class="btn btn-jei" onclick="addBanner()">Add and activate</button></section><section id="editor" class="panel hidden"><h4 id="editorTitle">Project</h4><input id="id" type="hidden"><label>Project title</label><input id="title" class="form-control"><label>Category</label><select id="category" class="form-select"><option value="road">Road Works</option><option value="building">Building & General Construction</option><option value="water">Water & Drainage</option><option value="cabro">Cabro Paving</option></select><label>Location</label><input id="location" class="form-control"><label>Year</label><input id="year" class="form-control" placeholder="2025"><label>Duration</label><input id="duration" class="form-control" placeholder="1 month"><label>Description</label><textarea id="description" class="form-control" rows="4"></textarea><label>Main image URL or existing asset path</label><input id="image" class="form-control" placeholder="assets/images/portfolio/..."><small class="muted">Add new image files to the website through GitHub, then enter their asset path above.</small><label>Image alt text</label><input id="alt" class="form-control"><label>Additional gallery image URLs (one per line)</label><textarea id="gallery" class="form-control" rows="3"></textarea><label class="form-check"><input id="published" type="checkbox" class="form-check-input" checked> Published</label><button class="btn btn-jei" onclick="saveProject()">Save project</button><button class="btn btn-secondary" onclick="show('projects')">Cancel</button></section></main><script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeiyien CMS</title><link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css"><style>:root{--navy:#0c356a;--cyan:#40f8ff}body{background:#f3f6fa;color:#17324f}.top{background:var(--navy);color:#fff;padding:18px 0}.wrap{max-width:1100px;margin:30px auto;padding:0 16px}.panel{background:#fff;border-radius:14px;padding:22px;box-shadow:0 8px 28px #1231;margin-bottom:20px}.btn-jei{background:var(--navy);color:#fff}.btn-jei:hover{background:#174b88;color:white}.project{border:1px solid #e1e8f0;border-radius:12px;padding:14px;margin-bottom:12px}.project img{width:100%;height:150px;object-fit:cover;border-radius:8px}.muted{color:#718096}.hidden{display:none}.form-control,.form-select{margin-bottom:10px}.tab{margin-right:8px;margin-bottom:8px}.status{margin:12px 0}</style></head><body><header class="top"><div class="container"><b>JEIYIEN <span style="color:var(--cyan)">CMS</span></b><span class="float-end">Website content manager</span></div></header><main class="wrap"><div id="status" class="status"></div><section class="panel"><h3>Manage your website</h3><p class="muted">Administrator access is required. Sign in using your administrator username and password.</p><button class="btn btn-jei tab" onclick="show('projects')">Projects</button><button class="btn btn-jei tab" onclick="show('banners')">Homepage banner</button><button class="btn btn-jei tab" onclick="newProject()">Add project</button></section><section id="projects" class="panel"><h4>Projects</h4><div id="list"></div></section><section id="banners" class="panel hidden"><h4>Homepage banners</h4><div id="bannerList"></div><label class="form-label">New banner image path</label><input class="form-control" id="bannerImage" placeholder="assets/images/hero-carousel-1.jpg"><input class="form-control" id="bannerAlt" placeholder="Image description"><button class="btn btn-jei" onclick="addBanner()">Add and activate</button></section><section id="editor" class="panel hidden"><h4 id="editorTitle">Project</h4><input id="id" type="hidden"><label>Project title</label><input id="title" class="form-control"><label>Category</label><select id="category" class="form-select"><option value="road">Road Works</option><option value="building">Building & General Construction</option><option value="water">Water & Drainage</option><option value="cabro">Cabro Paving</option></select><label>Location</label><input id="location" class="form-control"><label>Year</label><input id="year" class="form-control" placeholder="2025"><label>Duration</label><input id="duration" class="form-control" placeholder="1 month"><label>Description</label><textarea id="description" class="form-control" rows="4"></textarea><label>Main project image</label><input id="image" class="form-control" placeholder="Image URL or asset path"><input id="imageFile" type="file" class="form-control" accept="image/jpeg,image/png,image/webp,image/gif"><button type="button" class="btn btn-outline-primary mb-3" onclick="uploadProjectImage()">Upload selected image</button><div id="imagePreview" class="mb-3"></div><small class="muted">Choose an image and upload it to Cloudinary, or enter an existing image URL manually.</small><label>Image alt text</label><input id="alt" class="form-control"><label>Additional gallery images</label>
+<textarea id="gallery" class="form-control" rows="3" placeholder="Uploaded image URLs will appear here, one per line"></textarea>
+<input id="galleryFiles" type="file" class="form-control" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+<button type="button" class="btn btn-outline-primary mb-3" onclick="uploadGalleryImages()">Upload selected gallery images</button>
+<div id="galleryPreview" class="mb-3"></div>
+<small class="muted">Select multiple photos together. They will be uploaded to Cloudinary and added to this project's gallery.</small><label class="form-check"><input id="published" type="checkbox" class="form-check-input" checked> Published</label><button class="btn btn-jei" onclick="saveProject()">Save project</button><button class="btn btn-secondary" onclick="show('projects')">Cancel</button></section></main><script>
 let projects=[],banners=[];
 const $=id=>document.getElementById(id), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function api(path,opts={}){let r=await fetch('/api/'+path,opts);let j=await r.json().catch(()=>({}));if(!r.ok)throw Error(j.error||'Request failed');return j}
@@ -8,6 +13,58 @@ function show(id){['projects','banners','editor'].forEach(x=>$(x).classList.togg
 function render(){ $('list').innerHTML=projects.map((p,i)=>`<div class="row project align-items-center"><div class="col-md-3"><img src="${esc(imageUrl(p.image))}" alt=""></div><div class="col-md-6"><b>${esc(p.title)}</b><div class="muted">${esc(p.location)} Â· ${esc(p.year)} Â· ${esc(p.category)}</div><small>${p.published?'Published':'Hidden'}</small></div><div class="col-md-3"><button class="btn btn-sm btn-jei" onclick="edit(${i})">Edit</button> <button class="btn btn-sm btn-outline-danger" onclick="del(${i})">Delete</button></div></div>`).join('');$('bannerList').innerHTML=banners.map((b,i)=>`<div class="project row align-items-center"><div class="col-md-3"><img src="${esc(imageUrl(b.image))}"></div><div class="col-md-6">${esc(b.alt)} ${b.active?'<b>(Active)</b>':''}</div><div class="col-md-3"><button class="btn btn-sm btn-jei" onclick="activate(${i})">Activate</button> <button class="btn btn-sm btn-outline-danger" onclick="removeBanner(${i})">Delete</button></div></div>`).join('')}
 function edit(i){const p=projects[i];['id','title','category','location','year','duration','description','image','alt'].forEach(k=>$(k).value=p[k]||'');$('gallery').value=(p.gallery||[]).join('\n');$('published').checked=p.published!==false;$('editorTitle').textContent='Edit project';show('editor')}
 function newProject(){['id','title','location','year','duration','description','image','alt','gallery'].forEach(k=>$(k).value='');$('category').value='road';$('published').checked=true;$('editorTitle').textContent='Add project';show('editor')}
+
+async function uploadProjectImage(){
+ try {
+  const file=$('imageFile').files[0];
+  if(!file) throw Error('Please choose an image first.');
+  if(file.size>8*1024*1024) throw Error('Image must be 8 MB or smaller.');
+
+  notice('Uploading image to Cloudinary...');
+  const form=new FormData();
+  form.append('image',file);
+
+  const result=await api('upload',{method:'POST',body:form});
+  $('image').value=result.path;
+  $('imagePreview').innerHTML='<img src="'+esc(result.path)+'" style="max-width:100%;max-height:220px;border-radius:8px" alt="Uploaded image preview">';
+  $('imageFile').value='';
+  notice('Image uploaded successfully.');
+ } catch(e) {
+  notice('Upload failed: '+e.message);
+ }
+}
+
+async function uploadGalleryImages(){
+ try {
+  const files=Array.from($('galleryFiles').files);
+  if(!files.length) throw Error('Please select at least one gallery image.');
+
+  const allowed=['image/jpeg','image/png','image/webp','image/gif'];
+  for(const file of files){
+   if(file.size>8*1024*1024) throw Error(file.name+' exceeds the 8 MB limit.');
+   if(!allowed.includes(file.type)) throw Error(file.name+' is not a supported image.');
+  }
+
+  const urls=$('gallery').value.split('\n').map(x=>x.trim()).filter(Boolean);
+  let uploaded=0;
+
+  for(const file of files){
+   notice('Uploading '+(uploaded+1)+' of '+files.length+': '+file.name);
+   const form=new FormData();
+   form.append('image',file);
+   const result=await api('upload',{method:'POST',body:form});
+   urls.push(result.path);
+   uploaded++;
+  }
+
+  $('gallery').value=urls.join('\n');
+  $('galleryPreview').innerHTML=urls.map(url=>'<img src="'+esc(url)+'" style="width:110px;height:80px;object-fit:cover;border-radius:8px;margin:4px" alt="Gallery preview">').join('');
+  $('galleryFiles').value='';
+  notice(uploaded+' gallery image(s) uploaded successfully.');
+ } catch(e) {
+  notice('Gallery upload failed: '+e.message);
+ }
+}
 
 async function save(){await api('content',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({projects,banners})})}
 async function saveProject(){try{let id=$('id').value||('project-'+crypto.randomUUID());const p={id,title:$('title').value.trim(),category:$('category').value,location:$('location').value.trim(),year:$('year').value.trim(),duration:$('duration').value.trim(),description:$('description').value.trim(),image:$('image').value.trim(),alt:$('alt').value.trim(),gallery:$('gallery').value.split('\n').map(x=>x.trim()).filter(Boolean),published:$('published').checked};if(!p.title||!p.image)throw Error('Title and main image path are required.');const i=projects.findIndex(x=>x.id===id);if(i<0)projects.unshift(p);else projects[i]=p;await save();render();show('projects');notice('Project saved.');}catch(e){notice(e.message)}}

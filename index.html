@@ -549,6 +549,7 @@
     ${gallery.map((g,i)=>`<a class="glightbox ${i?'visually-hidden':'preview-link'}" data-gallery="portfolio-${esc(p.id)}" href="${esc(g)}" title="${esc(p.description)}">${i?'':'<i class="bi bi-zoom-in"></i>'}</a>`).join('')}
     <a aria-label="More about ${esc(p.title)}" class="details-link" href="project-details.html?project=${encodeURIComponent(p.id)}"><i class="bi bi-link-45deg"></i></a></div></div></div>`;
   }).join('');
+  if(window.glightbox){window.glightbox.reload();}
   if(window.Isotope){const iso=window.Isotope.data(grid);if(iso){iso.reloadItems();iso.arrange();}}
  }catch(e){console.warn('Jeiyien content could not be loaded',e);}
 })();
