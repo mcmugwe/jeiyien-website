@@ -1,0 +1,10 @@
+ABOUT TABS VISUAL UPDATE
+
+The About section tabs (Introduction, Mission & Vision, Core Values, and Why Choose Us)
+now use the same pill-button visual language as the Portfolio filters:
+- active: navy background with cyan text
+- inactive: light grey background with navy text
+- rounded pill shape, consistent height and spacing
+- responsive wrapping on mobile and desktop
+
+Tab labels, content, and tab functionality are unchanged.

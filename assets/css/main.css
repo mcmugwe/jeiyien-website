@@ -2124,7 +2124,7 @@ section,
 @media (max-width: 767px) {
   .jeiyien-cta { padding: 52px 0; }
   .jeiyien-cta-content { align-items: flex-start; flex-direction: column; gap: 22px; }
-  .jeiyien-cta-button { width: auto; min-height: 46px; padding: 10px 20px; font-size: 14px; }
+  .jeiyien-cta-button { width: 100%; }
 }
 
 

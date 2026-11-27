@@ -1,0 +1,5 @@
+Jeiyien About section update
+
+The About section now contains four responsive Bootstrap tabs: Introduction, Mission & Vision, Core Values, and Why Hire Us. Content is based on company details supplied in the project conversation and the original template text. Core values and the updated mission/vision wording are proposed website copy and can be edited to match approved company policy.
+
+The HTML is in index.html. SCSS styles are in assets/scss/_about.scss and the compiled styles have been added to assets/css/main.css. Bootstrap bundle handles the tabs.

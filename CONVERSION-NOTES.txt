@@ -1,0 +1,8 @@
+CLOUDFLARE CONVERSION NOTES
+- PHP CMS and PHP forms have been removed from the deployable project.
+- The new CMS is /admin/ and requires Cloudflare Access.
+- Project/banner records are seeded in database/seed.sql.
+- Public pages use /api/content to load projects and active banner.
+- Contact/newsletter email destination: mcmugwe@gmail.com.
+- Email delivery requires Resend API credentials configured as Cloudflare secrets.
+- Deployment is not complete until D1, R2, Access, Pages bindings and Resend are configured.

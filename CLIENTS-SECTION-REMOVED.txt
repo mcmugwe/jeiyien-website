@@ -1,0 +1,1 @@
+The Clients logo section has been removed from index.html. Its SCSS import, partial, and compiled CSS rules were also removed. Other sections and pages were left unchanged.

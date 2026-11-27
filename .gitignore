@@ -1,0 +1,11 @@
+﻿node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
+*.backup
+*.before-password-auth
+
+# Temporary backups and development files
+*.bak
+*.before-*

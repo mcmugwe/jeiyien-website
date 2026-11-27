@@ -184,7 +184,9 @@
     };
 
     const matchesCurrentView = function(element) {
-      return getCategoryProjects().indexOf(element) < visibleProjectCount;
+      const categoryProjects = getCategoryProjects();
+      const index = categoryProjects.indexOf(element);
+      return index !== -1 && index < visibleProjectCount;
     };
 
     const updateMoreButton = function() {

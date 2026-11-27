@@ -16,29 +16,27 @@
 <section class="section"><div class="container"><div class="row gy-4 align-items-start"><div class="col-lg-8"><img id="project-image" class="project-image" src="assets/images/portfolio/app-2.jpg" alt="Project image"><div id="project-extra" class="row g-3 mt-2"></div></div><div class="col-lg-4"><div class="project-meta"><h3 class="mb-4" style="color:#0C356A">Project Overview</h3><p><strong>Service:</strong><br><span id="project-category"></span></p><hr><p><strong>Location:</strong><br><span id="project-location"></span></p><hr><p id="project-description"></p><a class="project-back" href="index.html#portfolio"><i class="bi bi-arrow-left"></i> Back to all projects</a></div></div></div></div></section></main>
 <footer id="footer" class="footer dark-background"><div class="container copyright text-center mt-4"><p>© <strong class="px-1 sitename">Jeiyien Trading Company Limited</strong> <span>All Rights Reserved</span></p></div></footer>
 <script>
-const projects={
-    'kisumu': { title: 'Kisumu International Airport', description: 'Road works at Kisumu International Airport.', category: 'Road Works', location: 'Kisumu', image: 'assets/images/portfolio/app-6.jpg', alt: 'Excavation and road works at Kisumu International Airport', extra: ['assets/images/portfolio/kisumu-1.jpg'] },
-    'enkare-road': { title: 'Enkare Road Construction', description: 'Construction of Enkare Road in Narok County (2024).', category: 'Road Works', location: 'Narok County', image: 'assets/images/portfolio/app-2.jpg', alt: 'Road construction works on Enkare Road in Narok County', extra: [] },
-    'wilson-airport': { title: 'Wilson Airport Pavement Works', description: 'Pavement maintenance and road marking at Wilson Airport (2024).', category: 'Road Works', location: 'Nairobi', image: 'assets/images/portfolio/app-1.jpg', alt: 'Pavement maintenance and road marking at Wilson Airport', extra: [] },
-    'concrete-works': { title: 'Concrete Construction Works', description: 'Concrete construction works. Project location and further details were not specified.', category: 'Building & General Construction', location: 'Not specified', image: 'assets/images/portfolio/build-2.jpg', alt: 'Concrete construction works', extra: [] },
-    'laikipia-wall': { title: 'Laikipia Perimeter Wall', description: 'Perimeter wall fencing in Laikipia.', category: 'Building & General Construction', location: 'Laikipia', image: 'assets/images/portfolio/build-1.jpg', alt: 'Perimeter wall fencing works in Laikipia', extra: [] },
-    'nyahururu-home': { title: 'Nyahururu Residential House', description: 'Construction of a three-bedroom residential house in Nyahururu.', category: 'Building & General Construction', location: 'Nyahururu', image: 'assets/images/portfolio/build-4.jpg', alt: 'Completed three-bedroom residential house in Nyahururu', extra: [] },
-    'maasai-mall-drainage': { title: 'Maasai Mall Drainage Reconstruction', description: 'Reconstruction of the drainage system at Maasai Mall in Ongata Rongai.', category: 'Water & Drainage', location: 'Ongata Rongai', image: 'assets/images/portfolio/water-1.jpg', alt: 'Drainage system reconstruction works at Maasai Mall', extra: [] },
-    'juja-cabro': { title: 'Juja Residential Cabro Paving', description: 'Cabro paving at a residential property in Juja.', category: 'Cabro Paving', location: 'Juja', image: 'assets/images/portfolio/cabro-2.jpg', alt: 'Cabro paving installation at a residential property in Juja', extra: [] },
-    'city-bank-road': { title: 'City Bank Road Works', description: 'Road works at City Bank.', category: 'Road Works', location: 'Not specified', image: 'assets/images/portfolio/citybank.jpg', alt: 'Road works at City Bank', extra: [] },
-    'nanyuki-rentals': { title: 'Nanyuki Rental Houses & Cabro Paving', description: 'Construction of rental houses and cabro paving in Nanyuki.', category: 'Building & General Construction', location: 'Nanyuki', image: 'assets/images/portfolio/build-5.jpg', alt: 'Rental houses and cabro paving works in Nanyuki', extra: [] },
-    'kamiti-water-cellar': { title: 'Kamiti Corner Water Cellar', description: 'Construction of a water cellar at Kamiti Corner.', category: 'Water & Drainage', location: 'Kamiti Corner', image: 'assets/images/portfolio/water-2.jpg', alt: 'Water cellar construction at Kamiti Corner', extra: [] },
-    'nairobi-cabro': { title: 'Nairobi Cabro Paving', description: 'Cabro paving works in Nairobi.', category: 'Cabro Paving', location: 'Nairobi', image: 'assets/images/portfolio/cabro-1.jpg', alt: 'Cabro paving works in Nairobi', extra: [] },
-    'ruai-home': { title: 'Ruai Residential House', description: 'Construction of a three-bedroom residential house in Ruai.', category: 'Building & General Construction', location: 'Ruai', image: 'assets/images/portfolio/build-6.jpg', alt: 'Three-bedroom residential house construction in Ruai', extra: [] },
-    'jkia-road': { title: 'JKIA Road Works', description: 'Road works at Jomo Kenyatta International Airport (JKIA).', category: 'Road Works', location: 'Nairobi', image: 'assets/images/portfolio/app-4.jpg', alt: 'Road works at Jomo Kenyatta International Airport', extra: [] },
-    'nanyuki-commercial': { title: 'Nanyuki Commercial & Rental Buildings', description: 'Construction of commercial and rental houses in Nanyuki.', category: 'Building & General Construction', location: 'Nanyuki', image: 'assets/images/portfolio/build-3.jpg', alt: 'Commercial and rental building construction in Nanyuki', extra: [] },
-    'juja-cabro-additional': { title: 'Juja Cabro Paving Works', description: 'Cabro paving works in Juja.', category: 'Cabro Paving', location: 'Juja', image: 'assets/images/portfolio/cabro-3.jpg', alt: 'Cabro paving works in Juja', extra: [] },
-};
-const params=new URLSearchParams(window.location.search);const key=params.get('project');const project=projects[key];
-if(project){document.title=project.title+' | Jeiyien Trading Company Limited';document.getElementById('project-title').textContent=project.title;document.getElementById('project-summary').textContent=project.description;document.getElementById('project-image').src=project.image;document.getElementById('project-image').alt=project.alt;document.getElementById('project-category').textContent=project.category;document.getElementById('project-location').textContent=project.location;document.getElementById('project-description').textContent=project.description;const extra=document.getElementById('project-extra');(project.extra||[]).forEach(src=>{const col=document.createElement('div');col.className='col-md-6';const img=document.createElement('img');img.src=src;img.alt='Additional project photograph';img.className='project-image';col.appendChild(img);extra.appendChild(col);});}else{document.getElementById('project-title').textContent='Project not found';document.getElementById('project-summary').textContent='Please return to the portfolio and select a project.';document.getElementById('project-image').hidden=true;document.getElementById('project-description').textContent='This project link is not recognised.';}
+(async function(){
+ const q=new URLSearchParams(location.search), id=q.get('project');
+ const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ try{
+  const r=await fetch('/api/content');if(!r.ok)throw Error('Could not load project');
+  const d=await r.json(), p=(d.projects||[]).find(x=>x.id===id&&x.published!==false);
+  if(!p)throw Error('This project is unavailable.');
+  const labels={road:'Road Works',building:'Building & General Construction',water:'Water & Drainage',cabro:'Cabro Paving'};
+  $('#project-title').textContent=p.title;$('#project-summary').textContent=p.description||'Project by Jeiyien Trading Company Limited.';
+  $('#project-image').src=p.image;$('#project-image').alt=p.alt||p.title;
+  $('#project-category').textContent=labels[p.category]||p.category;
+  $('#project-location').textContent=p.location||'Not specified';
+  $('#project-description').textContent=[p.description,p.year?'Year: '+p.year:'',p.duration?'Duration: '+p.duration:''].filter(Boolean).join(' · ');
+  $('#project-extra').innerHTML=(p.gallery||[]).map(x=>`<div class="col-6"><img class="project-image" src="${esc(x)}" alt="${esc(p.title)} additional view"></div>`).join('');
+ }catch(e){$('#project-title').textContent='Project not found';$('#project-summary').textContent=e.message;}
+})();
 </script><script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><script src="assets/vendor/aos/aos.js"></script><script src="assets/js/main.js"></script><!-- Floating WhatsApp Contact Button -->
 <a class="whatsapp-float" href="https://wa.me/254798075495?text=Hello%20Jeiyien%20Trading%20Company%20Limited%2C%20I%20would%20like%20to%20make%20an%20enquiry%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat with Jeiyien Trading Company Limited on WhatsApp" title="Chat with us on WhatsApp">
   <i class="bi bi-whatsapp" aria-hidden="true"></i>
   <span>Chat with us</span>
 </a>
+
+
 </body></html>

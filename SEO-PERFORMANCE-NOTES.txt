@@ -1,0 +1,10 @@
+SEO and performance updates
+- Added a descriptive homepage title and meta description focused on the company's real services and Kenya location.
+- Added Open Graph and Twitter summary metadata for link sharing.
+- Added GeneralContractor structured data using the company contact details and service scope already present in the website.
+- Changed the homepage hero heading to a semantic H1 while preserving its visual styling.
+- Added descriptive metadata to the detail pages. The unused starter template page is marked noindex.
+- Added lazy loading and asynchronous image decoding to below-the-fold portfolio images.
+- Recompressed large JPEG assets while retaining image dimensions and filenames.
+
+Before publishing: confirm the final public website URL, then add a canonical URL and XML sitemap with that exact domain; submit the sitemap to Google Search Console and verify the business details.

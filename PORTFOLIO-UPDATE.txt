@@ -1,0 +1,5 @@
+PORTFOLIO UPDATE
+
+The homepage portfolio retains all 16 existing project entries and photographs. Project titles and descriptions have been standardised using the original captions and visible project images. All cards now link to a reusable project-details.html page with a unique project query key. No client names, contract values, completion claims, or unsupported dates have been added.
+
+The existing four portfolio filters remain: Road Works, Building & General Construction, Water & Drainage, and Cabro Paving.
