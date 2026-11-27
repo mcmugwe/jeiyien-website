@@ -20,7 +20,6 @@ if (missing.length) {
     missing
   }, 500);
 }
-  }
 
   const form = await request.formData();
   const file = form.get('image');
