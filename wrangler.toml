@@ -7,9 +7,7 @@ binding = "DB"
 database_name = "jeiyien-content"
 database_id = "2ec54c11-32dc-45d4-8fde-b57a47fd3e85"
 
-[[r2_buckets]]
-binding = "MEDIA"
-bucket_name = "jeiyien-media"
+
 
 [vars]
 EMAIL_FROM = "Jeiyien Website <onboarding@resend.dev>"
