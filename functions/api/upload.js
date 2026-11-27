@@ -8,10 +8,18 @@ export async function onRequest({request,env}) {
     return json({error:'Method not allowed'},405);
   }
 
-  if (!env.CLOUDINARY_CLOUD_NAME ||
-      !env.CLOUDINARY_API_KEY ||
-      !env.CLOUDINARY_API_SECRET) {
-    return json({error:'Cloudinary configuration is missing'},500);
+  const missing = [];
+
+if (!env.CLOUDINARY_CLOUD_NAME) missing.push('CLOUDINARY_CLOUD_NAME');
+if (!env.CLOUDINARY_API_KEY) missing.push('CLOUDINARY_API_KEY');
+if (!env.CLOUDINARY_API_SECRET) missing.push('CLOUDINARY_API_SECRET');
+
+if (missing.length) {
+  return json({
+    error: 'Missing Cloudinary configuration',
+    missing
+  }, 500);
+}
   }
 
   const form = await request.formData();
